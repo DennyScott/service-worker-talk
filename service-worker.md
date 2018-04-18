@@ -38,3 +38,11 @@ We can use the Channel Message API to communicate between these two contexts
 We are going to cache some data that we receive from an api, so incase our internet goes down, we can retract that info from our stage.
 
 Any caches which we create, are managed through the CacheStorage system. It exists in our ServiceWorkerGlobalScope.
+
+### Network first strategy
+
+Network first strategy means we are going to attempt to find that data over the network first. If we find it, cache it, and return it. If we error, return what is in our cache.
+
+We can even do things like, host specific pages if the user is offline, and cache those pages.
+
+### Cache first strategy

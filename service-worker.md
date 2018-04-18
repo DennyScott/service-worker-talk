@@ -22,6 +22,12 @@ We can use the Channel Message API to communicate between these two contexts
 
 * Has to be https
 * Async Only
+* Has 5 stages in its lifecycle. We can hook into each of these
+  * Parsed
+  * Installing
+  * Installed
+  * Activating
+  * Activated
 
 ## Platforms
 
@@ -46,3 +52,7 @@ Network first strategy means we are going to attempt to find that data over the 
 We can even do things like, host specific pages if the user is offline, and cache those pages.
 
 ### Cache first strategy
+
+We are going to attempt to find assets that are already in our service worker. If we can find those assets, we return those, if we don't find the assets, then we will call the network.
+
+## 05 - Cache First Strategy

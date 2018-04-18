@@ -27,4 +27,14 @@ We can use the Channel Message API to communicate between these two contexts
 
 * Across all platforms
 
-## Register our service worker
+## 01-Register our service worker
+
+## 02-Call a fetch request
+
+## 03-Watch for a failed fetch request
+
+## 04-Caching our data
+
+We are going to cache some data that we receive from an api, so incase our internet goes down, we can retract that info from our stage.
+
+Any caches which we create, are managed through the CacheStorage system. It exists in our ServiceWorkerGlobalScope.

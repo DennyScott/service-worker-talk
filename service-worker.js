@@ -1,17 +1,17 @@
-const data = [
-  {
-    body: "quia et suscipit↵suscipit recusandae consequuntur expedita et",
-    id: 1,
-    title: "sunt aut facere repellat provident occaecati excepturi optio",
-    userId: 1
-  }
-];
-
 self.addEventListener("fetch", event => {
-  console.log("listening for fetch");
   event.respondWith(
-    fetch(event.request).catch(error => {
-      return new Response(JSON.stringify(data));
-    })
+    fetch(event.request)
+      .then(response => {
+        console.log("in response");
+        const store = response.clone();
+        caches
+          .open(event.request.url)
+          .then(cache => cache.put(event.request, store));
+        return response;
+      })
+      .catch(error => {
+        console.log("in catch");
+        return caches.match(event.request);
+      })
   );
 });
